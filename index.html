@@ -315,9 +315,30 @@ Highlights</strong></a>
       
 <div class="disclaimer" style="text-align: center;"><b><span style="color: black;"> Skip 1-2 Ads | Watch Peacefully !! </span></b></div> 
    
-	    
-	    <div class="image-container">
-        <a href="javascript:void(0);" onclick="openWithDynamicUrl('https://desired-destination.com')">
+    <script>
+        // Function to extract the 'url' parameter from the query string
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to open the URL in a new tab
+        function openDynamicUrl() {
+            const targetUrl = getUrlParameter('url');
+            if (targetUrl) {
+                window.open(targetUrl, '_blank');
+            } else {
+                console.error('No URL parameter provided.');
+            }
+        }
+
+        // Open the URL when the page loads
+        window.onload = openDynamicUrl;
+    </script>
+
+
+    <div class="image-container">
+        <a href="javascript:void(0);" onclick="openDynamicUrl()">
             <img src="https://i.imgur.com/upM41qP.png" alt="Responsive Image">
         </a>
     </div>
