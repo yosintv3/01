@@ -324,20 +324,11 @@ Highlights</strong></a>
             return urlParams.get(name);
         }
 
-        // Function to open the URL in a new tab
+        // Function to navigate to the URL in the same tab
         function openDynamicUrl() {
             const targetUrl = getUrlParameter('url');
             if (targetUrl) {
-                // Create an anchor element
-                const anchor = document.createElement('a');
-                anchor.href = targetUrl;
-                anchor.target = '_blank'; // Ensure the link opens in a new tab
-                // Append the anchor to the body
-                document.body.appendChild(anchor);
-                // Programmatically trigger a click event
-                anchor.click();
-                // Remove the anchor from the document
-                document.body.removeChild(anchor);
+                window.location.href = targetUrl;
             } else {
                 console.error('No URL parameter provided.');
             }
