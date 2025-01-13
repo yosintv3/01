@@ -315,7 +315,7 @@ Highlights</strong></a>
       
 <div class="disclaimer" style="text-align: center;"><b><span style="color: black;"> Skip 1-2 Ads | Watch Peacefully !! </span></b></div> 
    
-<script>
+    <script>
         // Function to extract the 'url' parameter from the query string
         function getUrlParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -326,7 +326,16 @@ Highlights</strong></a>
         function openDynamicUrl() {
             const targetUrl = getUrlParameter('url');
             if (targetUrl) {
-                window.open(targetUrl, '_blank');
+                // Create an anchor element
+                const anchor = document.createElement('a');
+                anchor.href = targetUrl;
+                anchor.target = '_blank'; // Ensure the link opens in a new tab
+                // Append the anchor to the body
+                document.body.appendChild(anchor);
+                // Programmatically trigger a click event
+                anchor.click();
+                // Remove the anchor from the document
+                document.body.removeChild(anchor);
             } else {
                 console.error('No URL parameter provided.');
             }
