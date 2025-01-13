@@ -315,7 +315,7 @@ Highlights</strong></a>
       
 <div class="disclaimer" style="text-align: center;"><b><span style="color: black;"> Skip 1-2 Ads | Watch Peacefully !! </span></b></div> 
    
-    <script>
+<script>
         // Function to extract the 'url' parameter from the query string
         function getUrlParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -332,8 +332,11 @@ Highlights</strong></a>
             }
         }
 
-        // Open the URL when the page loads
-        window.onload = openDynamicUrl;
+        // Attach the click event listener to the image container
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageContainer = document.querySelector('.image-container');
+            imageContainer.addEventListener('click', openDynamicUrl);
+        });
     </script>
 
 
